@@ -31,21 +31,24 @@ function playRound(playerSelection, computerSelection) {
   }
 };
 
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, Paper or Scissors?");
 const computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
-console.log(playRound(playerSelection, computerSelection));
 
 function game() {
     for (let i = 0; i < 5; i++) {
     playRound(playerSelection, computerSelection);
+    console.log(playerScore);
     }
+    
     if (playerScore > computerScore) {
-        console.log(`You won! You won ${playerScore} times, while the computer won ${computerScore} times!`);
+        return `You won! You won ${playerScore} times, while the computer won ${computerScore} times!`;
     } else if (playerScore < computerScore) {
-        console.log(`You lost! You won ${playerScore} times, while the computer won ${computerScore} times!`);
+        return `You lost! You won ${playerScore} times, while the computer won ${computerScore} times!`;
     } else {
-        console.log(`It's a tie! You both have won ${playerScore} times!`);
+        return `It's a tie! You both have won ${playerScore} times!`;
     }
 };
+
+console.log(game()); // Result always either 0-0 tie, or 5-0 for player.
